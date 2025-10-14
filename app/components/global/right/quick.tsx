@@ -31,7 +31,6 @@ return (
           <DropdownMenuCheckboxItem
             checked={showOdbierzDziecko}
             onCheckedChange={setShowOdbierzDziecko}
-            onSelect={(e) => e.preventDefault()}
             className="data-[highlighted]:bg-[#608858] data-[highlighted]:text-white focus:bg-[#608858] focus:text-white"
           >
             Odbierz dziecko
