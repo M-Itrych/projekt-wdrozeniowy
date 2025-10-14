@@ -41,10 +41,6 @@ return (
       {showOdbierzDziecko && (
         <div className="mt-5 w-full flex flex-col items-center">
           <Button className="w-full p-5 bg-white text-black hover:bg-[#608858] hover:text-white"
-          onClick={() => 
-            alert("Pin modal would open here")
-
-          }
           >Odbierz dziecko</Button>
         </div>
       )}
