@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tailwindcss/preflight.css" layer(base);
 
 @custom-variant dark (&:is(.dark *));
 
@@ -120,13 +121,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-*,
-::after,
-::before,
-::backdrop,
-::file-selector-button {
-  margin: 0;
-  padding: 0;
 }
