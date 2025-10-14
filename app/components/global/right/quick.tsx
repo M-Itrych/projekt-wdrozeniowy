@@ -17,20 +17,22 @@ type Checked = DropdownMenuCheckboxItemProps["checked"]
 
 export function Quick() {
   const [showOdbierzDziecko, setShowOdbierzDziecko] = React.useState<Checked>(true)
-  
 
-return (
+  return (
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="w-full p-5 bg-[#608858] text-white">Szybkie akcje</Button>
+          <Button variant="default" className="w-full p-5 bg-[#608858] text-white hover:bg-[#4c7545] border border-gray-300" >
+            Szybkie akcje
+          </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56 h-90" align="end" sideOffset={5}>
-          <DropdownMenuLabel>Opcje</DropdownMenuLabel>
+        <DropdownMenuContent className="w-fit h-fit p-5" side="left" align="start">
+          <DropdownMenuLabel>Menu</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuCheckboxItem
             checked={showOdbierzDziecko}
             onCheckedChange={setShowOdbierzDziecko}
+            onSelect={(e) => e.preventDefault()}
             className="data-[highlighted]:bg-[#608858] data-[highlighted]:text-white focus:bg-[#608858] focus:text-white"
           >
             Odbierz dziecko
@@ -40,8 +42,9 @@ return (
       
       {showOdbierzDziecko && (
         <div className="mt-5 w-full flex flex-col items-center">
-          <Button className="w-full p-5 bg-white text-black hover:bg-[#608858] hover:text-white"
-          >Odbierz dziecko</Button>
+          <Button className="w-full p-5 bg-white text-black hover:bg-[#608858] hover:text-white border border-gray-300">
+            Odbierz dziecko
+          </Button>
         </div>
       )}
     </>
