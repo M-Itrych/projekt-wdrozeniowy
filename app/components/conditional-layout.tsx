@@ -24,11 +24,13 @@ const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
   }
   
   return (
-    <div className="flex flex-row min-h-screen">
+    <>
       <NavBar />
-      {children}
+      <div className="ml-[280px] mr-[320px] min-h-screen">
+        {children}
+      </div>
       <RightSide />
-    </div>
+    </>
   );
 };
 
