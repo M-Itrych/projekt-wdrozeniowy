@@ -77,7 +77,7 @@ const NavBar = () => {
             <div className={`relative w-full bg-gradient-to-br from-[#608858] via-[#557a4f] to-[#4a6b44] h-[140px] flex flex-col items-center justify-center p-6 shadow-lg ${isOpen ? '' : 'px-4'}`}>
                 <button
                     onClick={toggleNavbar}
-                    className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors backdrop-blur-sm"
+                    className="absolute inset-y-0 right-4 h-fit my-auto p-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors backdrop-blur-sm"
                 >
                     {isOpen ? (
                         <ChevronLeft className="w-5 h-5 text-white" />
