@@ -103,13 +103,7 @@ const NavBar = () => {
                         </h1>
                     </div>
                 ) : (
-                    <Image 
-                        src="/logo_szkoly.png" 
-                        alt="logo" 
-                        width={40} 
-                        height={40} 
-                        className="w-[40px] h-[40px] bg-white rounded-full shadow-lg" 
-                    />
+                    null
                 )}
             </div>
 
