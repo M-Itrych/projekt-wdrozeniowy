@@ -31,7 +31,7 @@ const NavBar = () => {
     });
     const menuItems = [
         {
-            name: "Kokpit",
+            name: "Alfa",
             icon: <HomeIcon />,
             href: "/",
         },
@@ -74,6 +74,11 @@ const NavBar = () => {
             name: "Płatności",
             icon: <CreditCardIcon />,
             href: "/platnosci",
+        },
+        {
+            name: "Omega",
+            icon: <SettingsIcon />,
+            href: "/zarzadzanie",
         },
     ];
     return (
