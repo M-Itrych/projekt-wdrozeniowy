@@ -34,11 +34,6 @@ const NavBar = () => {
             href: "/",
         },
         {
-            name: "Kalendarz",
-            icon: <CalendarIcon />,
-            href: "/kalendarz",
-        },
-        {
             name: "Moje Dziecko",
             icon: <UserIcon />,
             href: "/dziecko",
@@ -57,11 +52,6 @@ const NavBar = () => {
             name: "Galeria",
             icon: <CameraIcon />,
             href: "/galeria",
-        },
-        {
-            name: "Powiadomienia",
-            icon: <BellIcon />,
-            href: "/powiadomienia",
         },
         {
             name: "Jadłospis",
