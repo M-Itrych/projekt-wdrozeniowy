@@ -17,6 +17,8 @@ type Checked = DropdownMenuCheckboxItemProps["checked"]
 
 export function Quick() {
   const [showOdbierzDziecko, setShowOdbierzDziecko] = React.useState<Checked>(true)
+  const [showZglosNieobecnosc, setShowZglosNieobecnosc] = React.useState<Checked>(false)
+  const [showRachunki, setShowRachunki] = React.useState<Checked>(false)
 
   return (
     <>
@@ -37,6 +39,22 @@ export function Quick() {
           >
             Odbierz dziecko
           </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem
+            checked={showZglosNieobecnosc}
+            onCheckedChange={setShowZglosNieobecnosc}
+            onSelect={(e) => e.preventDefault()}
+            className="data-[highlighted]:bg-[#608858] data-[highlighted]:text-white focus:bg-[#608858] focus:text-white"
+          >
+            Zgłoś nieobecność
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem
+            checked={showRachunki}
+            onCheckedChange={setShowRachunki}
+            onSelect={(e) => e.preventDefault()}
+            className="data-[highlighted]:bg-[#608858] data-[highlighted]:text-white focus:bg-[#608858] focus:text-white"
+          >
+            Rachunki
+          </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>
       
@@ -44,6 +62,20 @@ export function Quick() {
         <div className="mt-5 w-full flex flex-col items-center">
           <Button className="w-full p-5 bg-white text-black hover:bg-[#608858] hover:text-white border border-gray-300">
             Odbierz dziecko
+          </Button>
+        </div>
+      )}
+      {showZglosNieobecnosc && (
+        <div className="mt-5 w-full flex flex-col items-center">
+          <Button className="w-full p-5 bg-white text-black hover:bg-[#608858] hover:text-white border border-gray-300">
+            Zgłoś nieobecność
+          </Button>
+        </div>
+      )}
+      {showRachunki && (
+        <div className="mt-5 w-full flex flex-col items-center">
+          <Button className="w-full p-5 bg-white text-black hover:bg-[#608858] hover:text-white border border-gray-300">
+            Rachunki
           </Button>
         </div>
       )}
