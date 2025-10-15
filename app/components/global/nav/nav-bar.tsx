@@ -15,9 +15,7 @@ import {
     BellIcon, 
     CreditCardIcon,
     SettingsIcon,
-    BookOpenIcon,
     UtensilsIcon,
-    HeartIcon,
     LogOutIcon
 } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -31,7 +29,7 @@ const NavBar = () => {
     });
     const menuItems = [
         {
-            name: "Alfa",
+            name: "Start",
             icon: <HomeIcon />,
             href: "/",
         },
@@ -74,11 +72,6 @@ const NavBar = () => {
             name: "Płatności",
             icon: <CreditCardIcon />,
             href: "/platnosci",
-        },
-        {
-            name: "Omega",
-            icon: <SettingsIcon />,
-            href: "/zarzadzanie",
         },
     ];
     return (
