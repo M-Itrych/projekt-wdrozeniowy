@@ -40,11 +40,8 @@ const Platnosci = () => {
                                 <TableHead>Data</TableHead>
                                 <TableHead>Kwota</TableHead>
                                 <TableHead>Status</TableHead>
-                                <TableHead>Metoda</TableHead>
                                 <TableHead>Numer transakcji</TableHead>
-                                <TableHead>Numer rachunku</TableHead>
                                 <TableHead>Numer faktury</TableHead>
-                                <TableHead>Numer karty</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -58,10 +55,7 @@ const Platnosci = () => {
                                 </TableCell>
                                 <TableCell>10.10.2025</TableCell>
                                 <TableCell>100 PLN</TableCell>
-                                <TableCell>Płatność</TableCell>
-                                <TableCell>Karta</TableCell>
-                                <TableCell>1234567890</TableCell>
-                                <TableCell>1234567890</TableCell>
+                                <TableCell>Zakonczono</TableCell>
                                 <TableCell>1234567890</TableCell>
                                 <TableCell>1234567890</TableCell>
                             </TableRow>
