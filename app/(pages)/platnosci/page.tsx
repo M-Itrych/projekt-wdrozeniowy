@@ -148,17 +148,6 @@ const Platnosci = () => {
                             Znaleziono: {filteredPayments.length} płatności
                         </div>
                     </div>
-                    
-                    {selectedItems.length > 0 && (
-                        <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-2">
-                            <div className="text-sm text-green-800">
-                                Wybrano: {selectedItems.length} płatności
-                            </div>
-                            <div className="text-lg font-semibold text-green-900">
-                                Suma: {totalAmount.toFixed(2)} PLN
-                            </div>
-                        </div>
-                    )}
                 </div>
             </div>
 
