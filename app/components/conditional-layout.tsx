@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import NavBar from "./global/nav/nav-bar";
 import RightSide from "./global/right/right-side";
+import { useNavbar } from "./contexts/navbar-context";
 
 interface ConditionalLayoutProps {
   children: React.ReactNode;
@@ -10,6 +11,7 @@ interface ConditionalLayoutProps {
 
 const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
   const pathname = usePathname();
+  const { isOpen } = useNavbar();
   const hiddenPages = [
     '/logowanie',
     '/rejestracja',
@@ -26,7 +28,7 @@ const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
   return (
     <>
       <NavBar />
-      <div className="ml-[280px] mr-[320px] min-h-screen">
+      <div className={`${isOpen ? "ml-[280px]" : "ml-[80px]"} mr-[320px] min-h-screen transition-all duration-300`}>
         {children}
       </div>
       <RightSide />

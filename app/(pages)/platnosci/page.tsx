@@ -109,7 +109,7 @@ const Platnosci = () => {
     }, 0)
     
     return (
-        <div className="w-full h-screen bg-gray-50 flex flex-col overflow-hidden">
+        <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
             <div className="bg-white border-b border-gray-200 px-6 py-4">
                 <div className="flex justify-between items-center mb-4">
                     <div>
@@ -131,22 +131,20 @@ const Platnosci = () => {
                 </div>
                 
                 <div className="flex justify-between items-center">
-                    <div className="flex gap-4">
-                        <div className="flex items-center gap-2">
-                            <Filter className="w-4 h-4 text-gray-500" />
-                            <select 
-                                value={filterStatus}
-                                onChange={(e) => setFilterStatus(e.target.value)}
-                                className="border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#608858]"
-                            >
-                                <option value="all">Wszystkie statusy</option>
-                                <option value="zakończono">Zakończono</option>
-                                <option value="w trakcie">W trakcie</option>
-                                <option value="oczekuje">Oczekuje</option>
-                                <option value="anulowano">Anulowano</option>
-                            </select>
-                        </div>
-                        <div className="text-sm text-gray-600">
+                    <div className="flex items-center gap-2">
+                        <Filter className="w-4 h-4 text-gray-500" />
+                        <select 
+                            value={filterStatus}
+                            onChange={(e) => setFilterStatus(e.target.value)}
+                            className="border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#608858]"
+                        >
+                            <option value="all">Wszystkie statusy</option>
+                            <option value="zakończono">Zakończono</option>
+                            <option value="w trakcie">W trakcie</option>
+                            <option value="oczekuje">Oczekuje</option>
+                            <option value="anulowano">Anulowano</option>
+                        </select>
+                        <div className="text-sm text-gray-600 ml-4">
                             Znaleziono: {filteredPayments.length} płatności
                         </div>
                     </div>

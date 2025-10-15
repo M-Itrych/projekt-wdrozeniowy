@@ -18,9 +18,10 @@ import {
     Bell
 } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useNavbar } from "../../contexts/navbar-context";
 
 const NavBar = () => {
-    const [isOpen, setIsOpen] = React.useState(true);
+    const { isOpen, toggleNavbar } = useNavbar();
     const pathname = usePathname();
     const [userProfile, setUserProfile] = React.useState({
         name: "Anna Kowalska",
@@ -75,7 +76,7 @@ const NavBar = () => {
         <div className={`${isOpen ? "w-[280px]" : "w-[80px]"} h-screen bg-gradient-to-b from-white to-gray-50 transition-all duration-300 flex flex-col fixed top-0 left-0 z-40 shadow-xl border-r border-gray-200`}>
             <div className={`relative w-full bg-gradient-to-br from-[#608858] via-[#557a4f] to-[#4a6b44] h-[140px] flex flex-col items-center justify-center p-6 shadow-lg ${isOpen ? '' : 'px-4'}`}>
                 <button
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={toggleNavbar}
                     className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors backdrop-blur-sm"
                 >
                     {isOpen ? (

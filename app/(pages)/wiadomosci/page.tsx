@@ -167,8 +167,8 @@ export default function WiadomosciPage() {
     });
   };
 
-  return (
-    <div className="w-full h-screen bg-gray-50 flex flex-col overflow-hidden">
+    return (
+        <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex justify-between items-center">
           <div>
