@@ -36,16 +36,6 @@ const Galeria = () => {
                             Zdjęcia z przedszkola
                         </p>
                     </div>
-                    <div className="flex gap-2">
-                        <button className="bg-[#608858] text-white px-4 py-2 rounded-lg hover:bg-[#4a6b44] transition-colors flex items-center gap-2 shadow-md">
-                            <Upload className="w-4 h-4" />
-                            Dodaj zdjęcia
-                        </button>
-                        <button className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors flex items-center gap-2 shadow-md">
-                            <Download className="w-4 h-4" />
-                            Pobierz wszystkie
-                        </button>
-                    </div>
                 </div>
             </div>
 
