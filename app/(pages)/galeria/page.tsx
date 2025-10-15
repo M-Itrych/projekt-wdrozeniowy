@@ -1,13 +1,8 @@
 "use client"
 
 import React from "react";
-import { Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
-import {
-    Pagination,
-    PaginationContent,
-    PaginationItem,
-    PaginationLink,
-  } from "@/components/ui/pagination"
+import { Camera, X } from "lucide-react";
+import CustomPagination from "@/app/components/ui/custom-pagination"
 
 const Galeria = () => {
     const [selectedImage, setSelectedImage] = React.useState<number | null>(null);
@@ -76,74 +71,15 @@ const Galeria = () => {
                     </div>
                 ))}
                 </div>
-                
-                <div className="mt-6">
-                    <div className="bg-white rounded-lg shadow-md p-4">
-                        <Pagination>
-                            <PaginationContent className="gap-2">
-                                <PaginationItem>
-                                    <PaginationLink 
-                                        href="#" 
-                                        size="default" 
-                                        className="gap-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-[#608858] transition-all duration-200 text-gray-700 hover:text-[#608858]"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            if (currentPage > 1) setCurrentPage(currentPage - 1);
-                                        }}
-                                    >
-                                        <ChevronLeft className="w-4 h-4" />
-                                        <span className="hidden sm:block">Poprzednia</span>
-                                    </PaginationLink>
-                                </PaginationItem>
-                                
-                                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                                    <PaginationItem key={page}>
-                                        <PaginationLink 
-                                            href="#" 
-                                            isActive={currentPage === page}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                setCurrentPage(page);
-                                            }}
-                                            className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                                                currentPage === page 
-                                                    ? "bg-[#608858] border-[#608858] text-white shadow-md hover:bg-[#4a6b44]" 
-                                                    : "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-[#608858] hover:text-[#608858]"
-                                            }`}
-                                        >
-                                            {page}
-                                        </PaginationLink>
-                                    </PaginationItem>
-                                ))}
-                                
-                                <PaginationItem>
-                                    <PaginationLink 
-                                        href="#" 
-                                        size="default" 
-                                        className="gap-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-[#608858] transition-all duration-200 text-gray-700 hover:text-[#608858]"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-                                        }}
-                                    >
-                                        <span className="hidden sm:block">Następna</span>
-                                        <ChevronRight className="w-4 h-4" />
-                                    </PaginationLink>
-                                </PaginationItem>
-                            </PaginationContent>
-                        </Pagination>
-                        
-                        <div className="mt-4 flex justify-between items-center text-sm text-gray-600">
-                            <div>
-                                Strona {currentPage} z {totalPages}
-                            </div>
-                            <div>
-                                Łącznie {images.length} zdjęć
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+            
+            <CustomPagination 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+                totalItems={images.length}
+                itemsLabel="zdjęć"
+            />
 
             {selectedImage && (
                 <div className="fixed inset-0 backdrop-blur-md bg-white bg-opacity-10 flex items-center justify-center z-50" onClick={closeModal}>

@@ -10,13 +10,8 @@ import {
     TableRow,
   } from "@/components/ui/table"
 import { Checkbox } from "@/components/ui/checkbox"
-import {
-    Pagination,
-    PaginationContent,
-    PaginationItem,
-    PaginationLink,
-  } from "@/components/ui/pagination"
-import { ChevronLeft, ChevronRight, CreditCard, Filter, Download, Eye } from "lucide-react"
+import { CreditCard, Filter, Download, Eye } from "lucide-react"
+import CustomPagination from "@/app/components/ui/custom-pagination"
 
 
 
@@ -253,111 +248,15 @@ const Platnosci = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col gap-4 mt-6">
-                    <div className="bg-white rounded-lg shadow-md p-4">
-                        <Pagination>
-                            <PaginationContent className="gap-2">
-                                <PaginationItem>
-                                    <PaginationLink 
-                                        href="#" 
-                                        size="default" 
-                                        className="gap-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-[#608858] transition-all duration-200 text-gray-700 hover:text-[#608858]"
-                                    >
-                                        <ChevronLeft className="w-4 h-4" />
-                                        <span className="hidden sm:block">Poprzednia</span>
-                                    </PaginationLink>
-                                </PaginationItem>
-                                
-                                <PaginationItem>
-                                    <PaginationLink 
-                                        href="#" 
-                                        isActive={selectedPage === 1}
-                                        onClick={() => setSelectedPage(1)}
-                                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                                            selectedPage === 1 
-                                                ? "bg-[#608858] border-[#608858] text-white shadow-md hover:bg-[#4a6b44]" 
-                                                : "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-[#608858] hover:text-[#608858]"
-                                        }`}
-                                    >
-                                        1
-                                    </PaginationLink>
-                                </PaginationItem>
-                                
-                                <PaginationItem>
-                                    <PaginationLink 
-                                        href="#" 
-                                        isActive={selectedPage === 2}
-                                        onClick={() => setSelectedPage(2)}
-                                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                                            selectedPage === 2 
-                                                ? "bg-[#608858] border-[#608858] text-white shadow-md hover:bg-[#4a6b44]" 
-                                                : "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-[#608858] hover:text-[#608858]"
-                                        }`}
-                                    >
-                                        2
-                                    </PaginationLink>
-                                </PaginationItem>
-                                
-                                <PaginationItem>
-                                    <PaginationLink 
-                                        href="#" 
-                                        isActive={selectedPage === 3}
-                                        onClick={() => setSelectedPage(3)}
-                                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                                            selectedPage === 3 
-                                                ? "bg-[#608858] border-[#608858] text-white shadow-md hover:bg-[#4a6b44]" 
-                                                : "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-[#608858] hover:text-[#608858]"
-                                        }`}
-                                    >
-                                        3
-                                    </PaginationLink>
-                                </PaginationItem>
-                                
-                                <PaginationItem>
-                                    <div className="px-4 py-2 text-gray-500 flex items-center">
-                                        <span className="text-lg">...</span>
-                                    </div>
-                                </PaginationItem>
-                                
-                                <PaginationItem>
-                                    <PaginationLink 
-                                        href="#" 
-                                        isActive={selectedPage === 10}
-                                        onClick={() => setSelectedPage(10)}
-                                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                                            selectedPage === 10 
-                                                ? "bg-[#608858] border-[#608858] text-white shadow-md hover:bg-[#4a6b44]" 
-                                                : "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-[#608858] hover:text-[#608858]"
-                                        }`}
-                                    >
-                                        10
-                                    </PaginationLink>
-                                </PaginationItem>
-                                
-                                <PaginationItem>
-                                    <PaginationLink 
-                                        href="#" 
-                                        size="default" 
-                                        className="gap-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-[#608858] transition-all duration-200 text-gray-700 hover:text-[#608858]"
-                                    >
-                                        <span className="hidden sm:block">Następna</span>
-                                        <ChevronRight className="w-4 h-4" />
-                                    </PaginationLink>
-                                </PaginationItem>
-                            </PaginationContent>
-                        </Pagination>
-                        
-                        <div className="mt-4 flex justify-between items-center text-sm text-gray-600">
-                            <div>
-                                Strona {selectedPage} z 10
-                            </div>
-                            <div>
-                                Łącznie {payments.length} płatności
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+            
+            <CustomPagination 
+                currentPage={selectedPage}
+                totalPages={10}
+                onPageChange={setSelectedPage}
+                totalItems={payments.length}
+                itemsLabel="płatności"
+            />
         </div>
     );
 };
