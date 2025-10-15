@@ -18,7 +18,7 @@ import {
     PaginationItem,
     PaginationLink,
   } from "@/components/ui/pagination"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, CreditCard } from "lucide-react"
 
 
 
@@ -27,12 +27,25 @@ const Platnosci = () => {
     const [selectedPage, setSelectedPage] = React.useState<number>(1)
     
     return (
+        <div className="w-full h-screen bg-gray-50 flex flex-col overflow-hidden">
+            <div className="bg-white border-b border-gray-200 px-6 py-4">
+                <div className="flex justify-between items-center">
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-900">Płatności</h1>
+                        <p className="text-sm text-gray-500 mt-1">
+                            Zarządzanie płatnościami przedszkolnymi
+                        </p>
+                    </div>
+                    <button className="bg-[#608858] text-white px-4 py-2 rounded-lg hover:bg-[#4a6b44] transition-colors flex items-center gap-2 shadow-md">
+                        <CreditCard className="w-4 h-4" />
+                        Zapłać rachunek
+                    </button>
+                </div>
+            </div>
 
-        <>
-            <div className="flex-1 p-6 border-l-2  border-[#608858]">
-                <h1 className="text-2xl font-bold mb-4 border-b-2 border-[#608858] pb-4">Płatności</h1>
+            <div className="flex-1 p-6 overflow-y-auto">
                 <div className="flex flex-col gap-4">
-                    <h1 className="text-lg font-bold">Do zapłaty</h1>
+                    <h2 className="text-lg font-bold">Do zapłaty</h2>
                     <Table>
                         <TableHeader>
                             <TableRow>
@@ -61,7 +74,6 @@ const Platnosci = () => {
                             </TableRow>
                         </TableBody>
                     </Table>
-                    <Button className="w-fit bg-[#608858] text-white">Zapłać rachunek</Button>
                 </div>
                 <div className="flex flex-col gap-4">
                     <Pagination>
@@ -105,7 +117,7 @@ const Platnosci = () => {
                     </Pagination>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

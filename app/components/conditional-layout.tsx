@@ -10,8 +10,6 @@ interface ConditionalLayoutProps {
 
 const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
   const pathname = usePathname();
-  
-  // Pages where navbar and right side should be hidden
   const hiddenPages = [
     '/logowanie',
     '/rejestracja',

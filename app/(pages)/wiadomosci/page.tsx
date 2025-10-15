@@ -169,7 +169,6 @@ export default function WiadomosciPage() {
 
   return (
     <div className="w-full h-screen bg-gray-50 flex flex-col overflow-hidden">
-      {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex justify-between items-center">
           <div>
@@ -193,9 +192,7 @@ export default function WiadomosciPage() {
       </div>
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar */}
         <div className="w-80 bg-white border-r border-gray-200 flex flex-col">
-          {/* Search */}
           <div className="p-4 border-b border-gray-200">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -209,7 +206,6 @@ export default function WiadomosciPage() {
             </div>
           </div>
 
-          {/* Tabs */}
           <div className="flex border-b border-gray-200">
             <button
               onClick={() => setActiveTab("inbox")}
@@ -250,7 +246,6 @@ export default function WiadomosciPage() {
             </button>
           </div>
 
-          {/* Messages List */}
           <div className="flex-1 overflow-y-auto">
             {filteredMessages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-gray-400 px-4">
@@ -310,10 +305,8 @@ export default function WiadomosciPage() {
           </div>
         </div>
 
-        {/* Main Content Area */}
         <div className="flex-1 flex flex-col bg-white">
           {isComposing ? (
-            // Compose Message
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
                 <h2 className="text-lg font-semibold text-gray-900">Nowa wiadomość</h2>
@@ -392,7 +385,6 @@ export default function WiadomosciPage() {
               </div>
             </div>
           ) : selectedMessage ? (
-            // Message Detail View
             <div className="flex flex-col h-full">
               <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
                 <button
@@ -466,7 +458,6 @@ export default function WiadomosciPage() {
               </div>
             </div>
           ) : (
-            // Empty State
             <div className="flex flex-col items-center justify-center h-full text-gray-400">
               <Inbox className="w-20 h-20 mb-4" />
               <p className="text-lg font-medium">Wybierz wiadomość</p>
