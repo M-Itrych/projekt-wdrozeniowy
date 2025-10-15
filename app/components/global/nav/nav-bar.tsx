@@ -63,7 +63,7 @@ const NavBar = () => {
         },
     ];
     return (
-        <div className={`${isOpen ? "w-[400px] max-w-[400px]" : "w-[80px] max-w-[80px]"} h-screen bg-[#EEF1EE] transition-all duration-300 flex flex-col position-sticky top-0 left-0`}>
+        <div className={`${isOpen ? "w-[500px] max-w-[500px]" : "w-[80px] max-w-[80px]"} h-screen bg-[#EEF1EE] transition-all duration-300 flex flex-col position-sticky top-0 left-0`}>
             <div className={`w-full flex flex-row bg-[#608858] h-[100px] gap-8 items-center py-4 px-8 ${isOpen ? 'justify-between' : 'justify-center'}`}>
                 {isOpen ? <Image src="/logo_szkoly.png" alt="logo" width={40} height={40} className="w-[40px] h-[40px] bg-white rounded-full" /> : null}
                 {isOpen ? <h1 className="text-white text-l font-bold text-center">Przedszkole nr14<br />"Biały Żagiel"</h1> : null}
