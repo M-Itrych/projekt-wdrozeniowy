@@ -92,16 +92,7 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
                         </PaginationContent>
                     </Pagination>
                     
-                    <div className="mt-4 flex justify-between items-center text-sm text-gray-600">
-                        <div>
-                            Strona {currentPage} z {totalPages}
-                        </div>
-                        {totalItems && (
-                            <div>
-                                Łącznie {totalItems} {itemsLabel}
-                            </div>
-                        )}
-                    </div>
+                    
                 </div>
             </div>
         </div>

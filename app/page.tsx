@@ -34,7 +34,7 @@ export default function Home() {
     {
       id: 1,
       sender: "Pani Maria Nowak",
-      subject: "Zebranie rodzicielskie - 20.10.2025",
+      subject: "Zebranie  z rodzicami - 20.10.2025",
       date: "2025-10-14",
       unread: true,
     },

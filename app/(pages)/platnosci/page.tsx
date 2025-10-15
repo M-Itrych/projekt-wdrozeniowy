@@ -19,6 +19,7 @@ const Platnosci = () => {
     const [selectedItems, setSelectedItems] = React.useState<number[]>([])
     const [selectedPage, setSelectedPage] = React.useState<number>(1)
     const [filterStatus, setFilterStatus] = React.useState<string>("all")
+    const itemsPerPage = 12
     
     const payments = [
         {
@@ -74,14 +75,188 @@ const Platnosci = () => {
             transactionNumber: "TXN001234572",
             invoiceNumber: "FV/2025/006",
             description: "Ubezpieczenie NNW"
+        },
+        {
+            id: 7,
+            date: "18.09.2025",
+            amount: "80.00 PLN",
+            status: "Zakończono",
+            transactionNumber: "TXN001234573",
+            invoiceNumber: "FV/2025/007",
+            description: "Zajęcia dodatkowe - rytmika"
+        },
+        {
+            id: 8,
+            date: "15.09.2025",
+            amount: "120.00 PLN",
+            status: "W trakcie",
+            transactionNumber: "TXN001234574",
+            invoiceNumber: "FV/2025/008",
+            description: "Wyprawka przedszkolna"
+        },
+        {
+            id: 9,
+            date: "12.09.2025",
+            amount: "90.00 PLN",
+            status: "Zakończono",
+            transactionNumber: "TXN001234575",
+            invoiceNumber: "FV/2025/009",
+            description: "Zajęcia z logopedą"
+        },
+        {
+            id: 10,
+            date: "10.09.2025",
+            amount: "60.00 PLN",
+            status: "Anulowano",
+            transactionNumber: "TXN001234576",
+            invoiceNumber: "FV/2025/010",
+            description: "Warsztaty plastyczne"
+        },
+        {
+            id: 11,
+            date: "08.09.2025",
+            amount: "110.00 PLN",
+            status: "Oczekuje",
+            transactionNumber: "TXN001234577",
+            invoiceNumber: "FV/2025/011",
+            description: "Zajęcia z języka niemieckiego"
+        },
+        {
+            id: 12,
+            date: "05.09.2025",
+            amount: "95.00 PLN",
+            status: "Zakończono",
+            transactionNumber: "TXN001234578",
+            invoiceNumber: "FV/2025/012",
+            description: "Wycieczka do teatru"
+        },
+        {
+            id: 13,
+            date: "03.09.2025",
+            amount: "85.00 PLN",
+            status: "W trakcie",
+            transactionNumber: "TXN001234579",
+            invoiceNumber: "FV/2025/013",
+            description: "Zajęcia sportowe - basen"
+        },
+        {
+            id: 14,
+            date: "01.09.2025",
+            amount: "130.00 PLN",
+            status: "Zakończono",
+            transactionNumber: "TXN001234580",
+            invoiceNumber: "FV/2025/014",
+            description: "Czesne za sierpień 2025"
+        },
+        {
+            id: 15,
+            date: "29.08.2025",
+            amount: "70.00 PLN",
+            status: "Oczekuje",
+            transactionNumber: "TXN001234581",
+            invoiceNumber: "FV/2025/015",
+            description: "Warsztaty kulinarne"
+        },
+        {
+            id: 16,
+            date: "26.08.2025",
+            amount: "105.00 PLN",
+            status: "Zakończono",
+            transactionNumber: "TXN001234582",
+            invoiceNumber: "FV/2025/016",
+            description: "Zajęcia z matematyki"
+        },
+        {
+            id: 17,
+            date: "24.08.2025",
+            amount: "55.00 PLN",
+            status: "Anulowano",
+            transactionNumber: "TXN001234583",
+            invoiceNumber: "FV/2025/017",
+            description: "Warsztaty ekologiczne"
+        },
+        {
+            id: 18,
+            date: "22.08.2025",
+            amount: "125.00 PLN",
+            status: "W trakcie",
+            transactionNumber: "TXN001234584",
+            invoiceNumber: "FV/2025/018",
+            description: "Wycieczka do muzeum"
+        },
+        {
+            id: 19,
+            date: "20.08.2025",
+            amount: "75.00 PLN",
+            status: "Zakończono",
+            transactionNumber: "TXN001234585",
+            invoiceNumber: "FV/2025/019",
+            description: "Zajęcia z robotyki"
+        },
+        {
+            id: 20,
+            date: "18.08.2025",
+            amount: "140.00 PLN",
+            status: "Oczekuje",
+            transactionNumber: "TXN001234586",
+            invoiceNumber: "FV/2025/020",
+            description: "Czesne za lipiec 2025"
+        },
+        {
+            id: 21,
+            date: "15.08.2025",
+            amount: "65.00 PLN",
+            status: "Zakończono",
+            transactionNumber: "TXN001234587",
+            invoiceNumber: "FV/2025/021",
+            description: "Zajęcia taneczne"
+        },
+        {
+            id: 22,
+            date: "12.08.2025",
+            amount: "115.00 PLN",
+            status: "W trakcie",
+            transactionNumber: "TXN001234588",
+            invoiceNumber: "FV/2025/022",
+            description: "Warsztaty teatralne"
+        },
+        {
+            id: 23,
+            date: "10.08.2025",
+            amount: "88.00 PLN",
+            status: "Zakończono",
+            transactionNumber: "TXN001234589",
+            invoiceNumber: "FV/2025/023",
+            description: "Zajęcia z psychologiem"
+        },
+        {
+            id: 24,
+            date: "08.08.2025",
+            amount: "135.00 PLN",
+            status: "Oczekuje",
+            transactionNumber: "TXN001234590",
+            invoiceNumber: "FV/2025/024",
+            description: "Wycieczka do planetarium"
         }
     ]
 
+    const filteredPayments = payments.filter(payment => {
+        if (filterStatus === "all") return true
+        return payment.status.toLowerCase().includes(filterStatus.toLowerCase())
+    })
+
+    const totalPages = Math.ceil(filteredPayments.length / itemsPerPage)
+    const startIndex = (selectedPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+    const currentPayments = filteredPayments.slice(startIndex, endIndex)
+
     const handleSelectAll = (checked: boolean) => {
         if (checked) {
-            setSelectedItems(payments.map(payment => payment.id))
+            const currentPageIds = currentPayments.map(payment => payment.id)
+            setSelectedItems([...new Set([...selectedItems, ...currentPageIds])])
         } else {
-            setSelectedItems([])
+            const currentPageIds = currentPayments.map(payment => payment.id)
+            setSelectedItems(selectedItems.filter(id => !currentPageIds.includes(id)))
         }
     }
 
@@ -92,11 +267,6 @@ const Platnosci = () => {
             setSelectedItems(selectedItems.filter(item => item !== id))
         }
     }
-
-    const filteredPayments = payments.filter(payment => {
-        if (filterStatus === "all") return true
-        return payment.status.toLowerCase().includes(filterStatus.toLowerCase())
-    })
 
     const totalAmount = selectedItems.reduce((sum, id) => {
         const payment = payments.find(p => p.id === id)
@@ -139,25 +309,22 @@ const Platnosci = () => {
                             <option value="oczekuje">Oczekuje</option>
                             <option value="anulowano">Anulowano</option>
                         </select>
-                        <div className="text-sm text-gray-600 ml-4">
-                            Znaleziono: {filteredPayments.length} płatności
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <div className="flex-1 p-6 overflow-y-auto">
-                <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="flex-1 p-6">
+                <div className="bg-white h-full flex flex-col rounded-lg shadow-md overflow-hidden">
                     <div className="px-6 py-4 border-b border-gray-200">
                         <h2 className="text-lg font-bold text-gray-900">Historia płatności</h2>
                     </div>
-                    <div className="overflow-x-auto">
+                    <div className="flex-1 overflow-x-auto">
                         <Table>
                             <TableHeader>
                                 <TableRow>
                                     <TableHead>
                                         <Checkbox 
-                                            checked={selectedItems.length === filteredPayments.length && filteredPayments.length > 0}
+                                            checked={currentPayments.every(payment => selectedItems.includes(payment.id)) && currentPayments.length > 0}
                                             onCheckedChange={handleSelectAll}
                                             className="data-[state=checked]:bg-[#608858] data-[state=checked]:border-[#608858] data-[state=checked]:text-white"
                                         />
@@ -172,7 +339,7 @@ const Platnosci = () => {
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {filteredPayments.map((payment) => (
+                                {currentPayments.map((payment) => (
                                     <TableRow key={payment.id} className={selectedItems.includes(payment.id) ? 'bg-green-50' : ''}>
                                         <TableCell>
                                             <Checkbox 
@@ -209,52 +376,13 @@ const Platnosci = () => {
                         </Table>
                     </div>
                 </div>
-                
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Podsumowanie</h3>
-                        <div className="space-y-2">
-                            <div className="flex justify-between">
-                                <span className="text-gray-600">Wszystkie płatności:</span>
-                                <span className="font-semibold">{payments.length}</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span className="text-gray-600">Zakończone:</span>
-                                <span className="font-semibold text-green-600">
-                                    {payments.filter(p => p.status === 'Zakończono').length}
-                                </span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span className="text-gray-600">Oczekujące:</span>
-                                <span className="font-semibold text-blue-600">
-                                    {payments.filter(p => p.status === 'Oczekuje').length}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Kontakt</h3>
-                        <div className="space-y-2 text-sm">
-                            <div className="text-gray-600">
-                                <strong>Księgowość:</strong><br />
-                                (123) 456-789<br />
-                                ksiegowosc@przedszkole.pl
-                            </div>
-                            <div className="text-gray-600">
-                                <strong>Godziny pracy:</strong><br />
-                                Pon-Pt: 8:00-16:00
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             
             <CustomPagination 
                 currentPage={selectedPage}
-                totalPages={10}
+                totalPages={totalPages}
                 onPageChange={setSelectedPage}
-                totalItems={payments.length}
+                totalItems={filteredPayments.length}
                 itemsLabel="płatności"
             />
         </div>

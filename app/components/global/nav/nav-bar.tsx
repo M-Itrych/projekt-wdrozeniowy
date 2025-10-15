@@ -15,7 +15,8 @@ import {
     LogOutIcon,
     ChevronLeft,
     ChevronRight,
-    Bell
+    CalendarIcon
+
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useNavbar } from "../../contexts/navbar-context";
@@ -38,6 +39,12 @@ const NavBar = () => {
             name: "Moje Dziecko",
             icon: <UserIcon className="w-5 h-5" />,
             href: "/dziecko",
+            badge: null,
+        },
+        {
+            name: "Wydarzenia",
+            icon: <CalendarIcon className="w-5 h-5" />,
+            href: "/wydarzenia",
             badge: null,
         },
         {

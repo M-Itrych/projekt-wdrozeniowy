@@ -9,12 +9,10 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Download, Eye, FileText, Filter, Search } from "lucide-react"
+import { Download, Eye, Filter, Search } from "lucide-react"
 import CustomPagination from "@/app/components/ui/custom-pagination"
 
 const Dokumenty = () => {
-    const [selectedItems, setSelectedItems] = React.useState<number[]>([])
     const [selectedPage, setSelectedPage] = React.useState<number>(1)
     const [filterType, setFilterType] = React.useState<string>("all")
     const [searchTerm, setSearchTerm] = React.useState<string>("")
@@ -94,21 +92,6 @@ const Dokumenty = () => {
         }
     ]
 
-    const handleSelectAll = (checked: boolean) => {
-        if (checked) {
-            setSelectedItems(filteredDocuments.map(doc => doc.id))
-        } else {
-            setSelectedItems([])
-        }
-    }
-
-    const handleSelectItem = (id: number, checked: boolean) => {
-        if (checked) {
-            setSelectedItems([...selectedItems, id])
-        } else {
-            setSelectedItems(selectedItems.filter(item => item !== id))
-        }
-    }
 
     const filteredDocuments = documents.filter(doc => {
         const matchesType = filterType === "all" || doc.category.toLowerCase() === filterType.toLowerCase()
@@ -118,18 +101,6 @@ const Dokumenty = () => {
         return matchesType && matchesSearch
     })
 
-    const handleDownload = (document: any) => {
-        // Symulacja pobierania dokumentu
-        console.log(`Pobieranie: ${document.title}`)
-        alert(`Pobieranie dokumentu: ${document.title}`)
-    }
-
-    const handleDownloadSelected = () => {
-        if (selectedItems.length > 0) {
-            console.log(`Pobieranie ${selectedItems.length} dokumentów`)
-            alert(`Pobieranie ${selectedItems.length} wybranych dokumentów`)
-        }
-    }
     
     return (
         <div className="w-full h-screen bg-gray-50 flex flex-col overflow-hidden">
@@ -140,17 +111,6 @@ const Dokumenty = () => {
                         <p className="text-sm text-gray-500 mt-1">
                             Centrum dokumentów przedszkolnych
                         </p>
-                    </div>
-                    <div className="flex gap-2">
-                        {selectedItems.length > 0 && (
-                            <button 
-                                onClick={handleDownloadSelected}
-                                className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors flex items-center gap-2 shadow-md"
-                            >
-                                <Download className="w-4 h-4" />
-                                Pobierz wybrane ({selectedItems.length})
-                            </button>
-                        )}
                     </div>
                 </div>
                 
@@ -188,14 +148,6 @@ const Dokumenty = () => {
                             </div>
                         </div>
                     </div>
-                    
-                    {selectedItems.length > 0 && (
-                        <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-2">
-                            <div className="text-sm text-green-800">
-                                Wybrano: {selectedItems.length} dokumentów
-                            </div>
-                        </div>
-                    )}
                 </div>
             </div>
 
@@ -208,13 +160,6 @@ const Dokumenty = () => {
                         <Table>
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead>
-                                        <Checkbox 
-                                            checked={selectedItems.length === filteredDocuments.length && filteredDocuments.length > 0}
-                                            onCheckedChange={handleSelectAll}
-                                            className="data-[state=checked]:bg-[#608858] data-[state=checked]:border-[#608858] data-[state=checked]:text-white"
-                                        />
-                                    </TableHead>
                                     <TableHead>Tytuł</TableHead>
                                     <TableHead>Opis</TableHead>
                                     <TableHead>Kategoria</TableHead>
@@ -226,14 +171,7 @@ const Dokumenty = () => {
                             </TableHeader>
                             <TableBody>
                                 {filteredDocuments.map((document) => (
-                                    <TableRow key={document.id} className={selectedItems.includes(document.id) ? 'bg-green-50' : ''}>
-                                        <TableCell>
-                                            <Checkbox 
-                                                checked={selectedItems.includes(document.id)}
-                                                onCheckedChange={(checked) => handleSelectItem(document.id, checked === true)}
-                                                className="data-[state=checked]:bg-[#608858] data-[state=checked]:border-[#608858] data-[state=checked]:text-white"
-                                            />
-                                        </TableCell>
+                                    <TableRow key={document.id}>
                                         <TableCell className="font-medium">{document.title}</TableCell>
                                         <TableCell className="max-w-xs">
                                             <div className="text-sm text-gray-900">{document.description}</div>
@@ -249,7 +187,6 @@ const Dokumenty = () => {
                                         <TableCell>
                                             <div className="flex gap-2">
                                                 <button 
-                                                    onClick={() => handleDownload(document)}
                                                     className="text-[#608858] hover:text-[#4a6b44] transition-colors"
                                                     title="Pobierz"
                                                 >
