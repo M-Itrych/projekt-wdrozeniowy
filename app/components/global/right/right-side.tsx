@@ -4,9 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { 
     Bell, 
-    MessageSquare, 
     CreditCard, 
-    Utensils, 
     Camera,
     Zap,
     UserCheck
@@ -38,22 +36,10 @@ const RightSide = () => {
             color: "from-red-500 to-red-600",
         },
         {
-            title: "Wiadomości",
-            icon: <MessageSquare className="w-5 h-5" />,
-            href: "/wiadomosci",
-            color: "from-blue-500 to-blue-600",
-        },
-        {
             title: "Płatności",
             icon: <CreditCard className="w-5 h-5" />,
             href: "/platnosci",
             color: "from-green-500 to-green-600",
-        },
-        {
-            title: "Jadłospis",
-            icon: <Utensils className="w-5 h-5" />,
-            href: "/jadlospis",
-            color: "from-orange-500 to-orange-600",
         },
         {
             title: "Galeria",

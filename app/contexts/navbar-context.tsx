@@ -5,6 +5,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 interface NavbarContextType {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
+  toggleNavbar: () => void;
 }
 
 const NavbarContext = createContext<NavbarContextType | undefined>(undefined);
@@ -23,8 +24,12 @@ export const NavbarProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("navbar-open", String(isOpen));
   }, [isOpen]);
 
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <NavbarContext.Provider value={{ isOpen, setIsOpen }}>
+    <NavbarContext.Provider value={{ isOpen, setIsOpen, toggleNavbar }}>
       {children}
     </NavbarContext.Provider>
   );
