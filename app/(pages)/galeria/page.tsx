@@ -1,22 +1,44 @@
 "use client"
 
 import React from "react";
-import { Camera, X, Upload, Download } from "lucide-react";
+import { Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+    Pagination,
+    PaginationContent,
+    PaginationItem,
+    PaginationLink,
+  } from "@/components/ui/pagination"
 
 const Galeria = () => {
     const [selectedImage, setSelectedImage] = React.useState<number | null>(null);
+    const [currentPage, setCurrentPage] = React.useState<number>(1);
+    const imagesPerPage = 9;
     
     const images = [
-        { id: 1, title: "Zdjęcie 1", description: "Opis zdjęcia 1" },
-        { id: 2, title: "Zdjęcie 2", description: "Opis zdjęcia 2" },
-        { id: 3, title: "Zdjęcie 3", description: "Opis zdjęcia 3" },
-        { id: 4, title: "Zdjęcie 4", description: "Opis zdjęcia 4" },
-        { id: 5, title: "Zdjęcie 5", description: "Opis zdjęcia 5" },
-        { id: 6, title: "Zdjęcie 6", description: "Opis zdjęcia 6" },
-        { id: 7, title: "Zdjęcie 7", description: "Opis zdjęcia 7" },
-        { id: 8, title: "Zdjęcie 8", description: "Opis zdjęcia 8" },
-        { id: 9, title: "Zdjęcie 9", description: "Opis zdjęcia 9" },
+        { id: 1, title: "Wspólne zabawy", description: "Dzieci bawią się na placu zabaw" },
+        { id: 2, title: "Zajęcia plastyczne", description: "Tworzenie prac z kolorowego papieru" },
+        { id: 3, title: "Czytanie bajek", description: "Pani nauczycielka czyta bajkę" },
+        { id: 4, title: "Śniadanie", description: "Wspólne śniadanie w przedszkolu" },
+        { id: 5, title: "Spacer", description: "Wycieczka do parku" },
+        { id: 6, title: "Zajęcia muzyczne", description: "Śpiewanie piosenek" },
+        { id: 7, title: "Budowanie z klocków", description: "Dzieci konstruują z klocków LEGO" },
+        { id: 8, title: "Zajęcia sportowe", description: "Gry i zabawy ruchowe" },
+        { id: 9, title: "Obiad", description: "Wspólny obiad w stołówce" },
+        { id: 10, title: "Drzemka", description: "Czas na odpoczynek" },
+        { id: 11, title: "Zajęcia z angielskiego", description: "Nauka języka angielskiego" },
+        { id: 12, title: "Zabawy na śniegu", description: "Zimowe zabawy na placu" },
+        { id: 13, title: "Występ teatralny", description: "Dzieci przygotowują przedstawienie" },
+        { id: 14, title: "Zajęcia kulinarne", description: "Wspólne pieczenie ciasteczek" },
+        { id: 15, title: "Wycieczka do zoo", description: "Wizyta w ogrodzie zoologicznym" },
+        { id: 16, title: "Dzień dziecka", description: "Świętowanie Dnia Dziecka" },
+        { id: 17, title: "Zajęcia z robotyki", description: "Nauka programowania" },
+        { id: 18, title: "Warsztaty ceramiczne", description: "Tworzenie z gliny" },
     ];
+
+    const totalPages = Math.ceil(images.length / imagesPerPage);
+    const startIndex = (currentPage - 1) * imagesPerPage;
+    const endIndex = startIndex + imagesPerPage;
+    const currentImages = images.slice(startIndex, endIndex);
 
     const handleImageClick = (imageId: number) => {
         setSelectedImage(imageId);
@@ -41,7 +63,7 @@ const Galeria = () => {
 
             <div className="flex-1 p-6 overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {images.map((image) => (
+                {currentImages.map((image) => (
                     <div 
                         key={image.id}
                         className="bg-gray-200 rounded-lg p-4 min-h-[200px] flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-colors duration-200"
@@ -53,6 +75,73 @@ const Galeria = () => {
                         </div>
                     </div>
                 ))}
+                </div>
+                
+                <div className="mt-6">
+                    <div className="bg-white rounded-lg shadow-md p-4">
+                        <Pagination>
+                            <PaginationContent className="gap-2">
+                                <PaginationItem>
+                                    <PaginationLink 
+                                        href="#" 
+                                        size="default" 
+                                        className="gap-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-[#608858] transition-all duration-200 text-gray-700 hover:text-[#608858]"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (currentPage > 1) setCurrentPage(currentPage - 1);
+                                        }}
+                                    >
+                                        <ChevronLeft className="w-4 h-4" />
+                                        <span className="hidden sm:block">Poprzednia</span>
+                                    </PaginationLink>
+                                </PaginationItem>
+                                
+                                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                                    <PaginationItem key={page}>
+                                        <PaginationLink 
+                                            href="#" 
+                                            isActive={currentPage === page}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                setCurrentPage(page);
+                                            }}
+                                            className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                                                currentPage === page 
+                                                    ? "bg-[#608858] border-[#608858] text-white shadow-md hover:bg-[#4a6b44]" 
+                                                    : "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-[#608858] hover:text-[#608858]"
+                                            }`}
+                                        >
+                                            {page}
+                                        </PaginationLink>
+                                    </PaginationItem>
+                                ))}
+                                
+                                <PaginationItem>
+                                    <PaginationLink 
+                                        href="#" 
+                                        size="default" 
+                                        className="gap-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-[#608858] transition-all duration-200 text-gray-700 hover:text-[#608858]"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                                        }}
+                                    >
+                                        <span className="hidden sm:block">Następna</span>
+                                        <ChevronRight className="w-4 h-4" />
+                                    </PaginationLink>
+                                </PaginationItem>
+                            </PaginationContent>
+                        </Pagination>
+                        
+                        <div className="mt-4 flex justify-between items-center text-sm text-gray-600">
+                            <div>
+                                Strona {currentPage} z {totalPages}
+                            </div>
+                            <div>
+                                Łącznie {images.length} zdjęć
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
