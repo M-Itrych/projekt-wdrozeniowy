@@ -15,7 +15,7 @@ export default function NotFound() {
         <div className="space-y-4">
           <Link
             href="/"
-            className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition-colors"
+            className="inline-block bg-[#608858] text-white px-6 py-3 rounded-md hover:bg-[#4a6b44] transition-colors"
           >
             Wróć do strony głównej
           </Link>
