@@ -30,7 +30,7 @@ export default function LogowaniePage() {
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-[#608858] focus:border-[#608858] focus:z-10 sm:text-sm"
                 placeholder="Adres email"
               />
             </div>
@@ -44,7 +44,7 @@ export default function LogowaniePage() {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#608858] focus:border-[#608858] focus:z-10 sm:text-sm"
                 placeholder="Hasło"
               />
             </div>
@@ -56,7 +56,7 @@ export default function LogowaniePage() {
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                className="h-4 w-4 text-[#608858] focus:ring-[#608858] border-gray-300 rounded"
               />
               <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
                 Zapamiętaj mnie
@@ -64,7 +64,7 @@ export default function LogowaniePage() {
             </div>
 
             <div className="text-sm">
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <a href="#" className="font-medium text-[#608858] hover:text-[#4a6b44]">
                 Zapomniałeś hasła?
               </a>
             </div>
@@ -74,14 +74,14 @@ export default function LogowaniePage() {
             <button
               onClick={handleLogin}
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#608858] hover:bg-[#4a6b44] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#608858]"
             >
               Zaloguj się
             </button>
           </div>
 
           <div className="text-center">
-            <a href="/rejestracja" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="/rejestracja" className="font-medium text-[#608858] hover:text-[#4a6b44]">
               Nie masz konta? Zarejestruj się
             </a>
           </div>

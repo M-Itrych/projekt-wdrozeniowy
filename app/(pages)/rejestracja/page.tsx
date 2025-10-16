@@ -21,7 +21,7 @@ export default function RejestracjaPage() {
                 name="firstName"
                 type="text"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#608858] focus:border-[#608858] sm:text-sm"
                 placeholder="Imię"
               />
             </div>
@@ -34,7 +34,7 @@ export default function RejestracjaPage() {
                 name="lastName"
                 type="text"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#608858] focus:border-[#608858] sm:text-sm"
                 placeholder="Nazwisko"
               />
             </div>
@@ -48,7 +48,7 @@ export default function RejestracjaPage() {
                 type="email"
                 autoComplete="email"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#608858] focus:border-[#608858] sm:text-sm"
                 placeholder="Adres email"
               />
             </div>
@@ -62,7 +62,7 @@ export default function RejestracjaPage() {
                 type="password"
                 autoComplete="new-password"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#608858] focus:border-[#608858] sm:text-sm"
                 placeholder="Hasło"
               />
             </div>
@@ -76,7 +76,7 @@ export default function RejestracjaPage() {
                 type="password"
                 autoComplete="new-password"
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-[#608858] focus:border-[#608858] sm:text-sm"
                 placeholder="Potwierdź hasło"
               />
             </div>
@@ -88,24 +88,24 @@ export default function RejestracjaPage() {
               name="agree-terms"
               type="checkbox"
               required
-              className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+              className="h-4 w-4 text-[#608858] focus:ring-[#608858] border-gray-300 rounded"
             />
             <label htmlFor="agree-terms" className="ml-2 block text-sm text-gray-900">
-              Zgadzam się z <a href="#" className="text-indigo-600 hover:text-indigo-500">warunkami użytkowania</a>
+              Zgadzam się z <a href="#" className="text-[#608858] hover:text-[#4a6b44]">warunkami użytkowania</a>
             </label>
           </div>
 
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#608858] hover:bg-[#4a6b44] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#608858]"
             >
               Zarejestruj się
             </button>
           </div>
 
           <div className="text-center">
-            <a href="/logowanie" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="/logowanie" className="font-medium text-[#608858] hover:text-[#4a6b44]">
               Masz już konto? Zaloguj się
             </a>
           </div>
