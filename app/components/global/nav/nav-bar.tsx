@@ -189,9 +189,9 @@ const NavBar = () => {
                                     <SettingsIcon className="w-4 h-4 text-gray-400 group-hover:text-[#608858]" />
                                 </Link>
                                 <Link 
-                                    href="/wyloguj" 
+                                    href="/logowanie" 
                                     className="p-2 hover:bg-gray-100 rounded-lg transition-colors group"
-                                    title="Wyloguj"
+                                    title="logowanie"
                                 >
                                     <LogOutIcon className="w-4 h-4 text-gray-400 group-hover:text-red-500" />
                                 </Link>
