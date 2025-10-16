@@ -82,11 +82,11 @@ const Galeria = () => {
             />
 
             {selectedImage && (
-                <div className="fixed inset-0 backdrop-blur-md bg-white bg-opacity-10 flex items-center justify-center z-50" onClick={closeModal}>
+                <div className="fixed inset-0 backdrop-blur-md  bg-opacity-10 flex items-center justify-center z-50" onClick={closeModal}>
                     <div className="relative max-w-4xl max-h-full p-4" onClick={(e) => e.stopPropagation()}>
                         <button 
                             onClick={closeModal}
-                            className="absolute top-2 right-2 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
+                            className="absolute top-2 right-2 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors cursor-pointer"
                         >
                             <X className="w-6 h-6" />
                         </button>

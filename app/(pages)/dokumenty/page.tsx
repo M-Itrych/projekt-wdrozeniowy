@@ -190,10 +190,10 @@ const Dokumenty = () => {
                                                     className="text-[#608858] hover:text-[#4a6b44] transition-colors"
                                                     title="Pobierz"
                                                 >
-                                                    <Download className="w-4 h-4" />
+                                                    <Download className="w-4 h-4 cursor-pointer" />
                                                 </button>
                                                 <button className="text-gray-500 hover:text-gray-700 transition-colors" title="Podgląd">
-                                                    <Eye className="w-4 h-4" />
+                                                    <Eye className="w-4 h-4 cursor-pointer" />
                                                 </button>
                                             </div>
                                         </TableCell>

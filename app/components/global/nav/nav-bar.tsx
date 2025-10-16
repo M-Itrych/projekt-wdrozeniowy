@@ -87,9 +87,9 @@ const NavBar = () => {
                     className="absolute inset-y-0 right-4 h-fit my-auto p-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors backdrop-blur-sm"
                 >
                     {isOpen ? (
-                        <ChevronLeft className="w-5 h-5 text-white" />
+                        <ChevronLeft className="w-5 h-5 text-white cursor-pointer" />
                     ) : (
-                        <ChevronRight className="w-5 h-5 text-white" />
+                        <ChevronRight className="w-5 h-5 text-white cursor-pointer" />
                     )}
                 </button>
                 

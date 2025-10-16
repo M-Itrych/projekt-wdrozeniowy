@@ -12,6 +12,14 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Eye, EyeOff, Edit2, Trash2 } from "lucide-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuTrigger,
+    DropdownMenuSeparator,
+    DropdownMenuLabel,
+    DropdownMenuCheckboxItem,
+} from "@/components/ui/dropdown-menu";
 
 export default function Ustawienia() {
     const [showEmail, setShowEmail] = useState(false);
@@ -27,9 +35,11 @@ export default function Ustawienia() {
 
     const maskedEmail = userData.email.replace(/(.{3}).*(@.*)/, "$1****$2");
     const maskedPhone = userData.phone.replace(/(.{3}).*(.{4})/, "$1****$2");
+    const [theme, setTheme] = useState("light");
+    const [showOdbierzDziecko, setShowOdbierzDziecko] = useState(false);
 
     return (
-        <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
+        <div className="h-screen bg-gray-50 flex flex-col overflow-hidden ">
             <div className="bg-white border-b border-gray-200 px-6 py-4">
                 <div className="flex justify-between items-center">
                     <div>
@@ -59,7 +69,7 @@ export default function Ustawienia() {
                                 <div className="flex items-center gap-2">
                                     <button
                                         onClick={() => setShowEmail(!showEmail)}
-                                        className="text-[#608858] hover:text-[#4a6b44] text-sm font-medium flex items-center gap-1"
+                                        className="text-[#608858] hover:text-[#4a6b44] text-sm font-medium flex items-center gap-1 cursor-pointer"
                                     >
                                         {showEmail ? (
                                             <>
@@ -73,7 +83,7 @@ export default function Ustawienia() {
                                             </>
                                         )}
                                     </button>
-                                    <Button variant="outline" size="sm" className="ml-2">
+                                    <Button variant="outline" size="sm" className="ml-2 cursor-pointer">
                                         <Edit2 className="w-4 h-4 mr-1" />
                                         Edytuj
                                     </Button>
@@ -94,7 +104,7 @@ export default function Ustawienia() {
                                 <div className="flex items-center gap-2">
                                     <button
                                         onClick={() => setShowPhone(!showPhone)}
-                                        className="text-[#608858] hover:text-[#4a6b44] text-sm font-medium flex items-center gap-1"
+                                        className="text-[#608858] hover:text-[#4a6b44] text-sm font-medium flex items-center gap-1 cursor-pointer"
                                     >
                                         {showPhone ? (
                                             <>
@@ -108,11 +118,11 @@ export default function Ustawienia() {
                                             </>
                                         )}
                                     </button>
-                                    <Button variant="outline" size="sm" className="ml-2">
+                                    <Button variant="outline" size="sm" className="ml-2 cursor-pointer">
                                         <Trash2 className="w-4 h-4 mr-1" />
                                         Usuń
                                     </Button>
-                                    <Button variant="outline" size="sm" className="ml-1">
+                                    <Button variant="outline" size="sm" className="ml-1 cursor-pointer">
                                         <Edit2 className="w-4 h-4 mr-1" />
                                         Edytuj
                                     </Button>
@@ -130,7 +140,7 @@ export default function Ustawienia() {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-2 cursor-pointer">
                                     <Button variant="outline" size="sm" className="ml-2">
                                         <Edit2 className="w-4 h-4 mr-1" />
                                         Edytuj
@@ -152,7 +162,7 @@ export default function Ustawienia() {
                                     id="notifications" 
                                     checked={notifications}
                                     onCheckedChange={setNotifications}
-                                    className="data-[state=checked]:bg-[#608858]"
+                                    className="data-[state=checked]:bg-[#608858] cursor-pointer"
                                 />
                             </div>
                             <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
@@ -161,19 +171,65 @@ export default function Ustawienia() {
                                     <p className="text-sm text-gray-600">Wybierz język aplikacji</p>
                                 </div>
                                 <Select value={language} onValueChange={setLanguage}>
-                                    <SelectTrigger className="w-32">
+                                    <SelectTrigger className="w-32 cursor-pointer">
                                         <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="pl">Polski</SelectItem>
-                                        <SelectItem value="en">English</SelectItem>
+                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#608858] data-[highlighted]:text-white focus:bg-[#608858] focus:text-white " value="pl">Polski</SelectItem>
+                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#608858] data-[highlighted]:text-white focus:bg-[#608858] focus:text-white " value="en">English</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
                         </div>
+                        <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p className="text-base font-medium text-gray-900">Wybór motywu</p>
+                                    <p className="text-sm text-gray-600">Wybierz kolor motywu</p>
+                                </div>
+                                <Select value={theme} onValueChange={setTheme}>
+                                    <SelectTrigger className="w-32">
+                                        <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="light">Jasny</SelectItem>
+                                        <SelectItem value="dark">Ciemny</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
                     </div>
-                    <div className="flex justify-end">
-                        <Button className="bg-[#608858] hover:bg-[#4a6b44] text-white px-6">
+                    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                        <h2 className="text-xl font-bold text-gray-900 mb-6">Wybierz szybkie akcje</h2>
+                        
+                        <div className="space-y-6">
+                            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                <div>
+                                    <p className="text-base font-medium text-gray-900">Szybkie akcje</p>
+                                    <p className="text-sm text-gray-600">Wybierz akcję wyświetlaną na pasku bocznym</p>
+                                </div>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <Button variant="outline" className="w-48 cursor-pointer">
+                                            { "Wybierz szybką akcję"}
+                                        </Button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent className="w-48">
+                                        <DropdownMenuLabel>Wybierz szybką akcję</DropdownMenuLabel>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuCheckboxItem
+                                            onSelect={(e) => e.preventDefault()}
+                                            checked={showOdbierzDziecko}
+                                            onCheckedChange={setShowOdbierzDziecko}
+                                            className="cursor-pointer data-[highlighted]:bg-[#608858] data-[highlighted]:text-white focus:bg-[#608858] focus:text-white "
+                                        >
+                                            Odbierz dziecko
+                                        </DropdownMenuCheckboxItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex justify-end cursor-pointer w-fit justify-self-end">
+                        <Button className="bg-[#608858] hover:bg-[#4a6b44] text-white px-6 cursor-pointer">
                             Zapisz zmiany
                         </Button>
                     </div>
