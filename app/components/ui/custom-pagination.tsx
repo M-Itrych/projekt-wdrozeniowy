@@ -44,16 +44,16 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
     };
 
     return (
-        <div className="bg-white border-t border-gray-200 px-6 py-4">
+        <div className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-6 py-4">
             <div className="flex justify-center">
-                <div className="bg-white rounded-lg p-4">
+                <div className="bg-white dark:bg-gray-800 rounded-lg p-4">
                     <Pagination>
                         <PaginationContent className="gap-2">
                             <PaginationItem>
                                 <PaginationLink 
                                     href="#" 
                                     size="default" 
-                                    className="gap-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-[#608858] transition-all duration-200 text-gray-700 hover:text-[#608858]"
+                                    className="gap-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-[#005FA6] transition-all duration-200 text-gray-700 dark:text-gray-300 hover:text-[#005FA6]"
                                     onClick={handlePreviousPage}
                                 >
                                     <ChevronLeft className="w-4 h-4" />
@@ -69,8 +69,8 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
                                         onClick={(e) => handlePageClick(e, page)}
                                         className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                                             currentPage === page 
-                                                ? "bg-[#608858] border-[#608858] text-white shadow-md hover:bg-[#4a6b44]" 
-                                                : "border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-[#608858] hover:text-[#608858]"
+                                                ? "bg-[#005FA6] border-[#005FA6] text-white shadow-md hover:bg-[#005FA6]" 
+                                                : "border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-[#005FA6] hover:text-[#005FA6]"
                                         }`}
                                     >
                                         {page}
@@ -82,7 +82,7 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
                                 <PaginationLink 
                                     href="#" 
                                     size="default" 
-                                    className="gap-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-[#608858] transition-all duration-200 text-gray-700 hover:text-[#608858]"
+                                    className="gap-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-[#005FA6] transition-all duration-200 text-gray-700 dark:text-gray-300 hover:text-[#005FA6]"
                                     onClick={handleNextPage}
                                 >
                                     <span className="hidden sm:block">Następna</span>

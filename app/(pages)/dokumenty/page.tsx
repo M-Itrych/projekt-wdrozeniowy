@@ -103,12 +103,12 @@ const Dokumenty = () => {
 
     
     return (
-        <div className="w-full h-screen bg-gray-50 flex flex-col overflow-hidden">
-            <div className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="w-full h-screen bg-gray-50 dark:bg-gray-900 flex flex-col overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
                 <div className="flex justify-between items-center mb-4">
                     <div>
-                        <h1 className="text-2xl font-bold text-gray-900">Dokumenty</h1>
-                        <p className="text-sm text-gray-500 mt-1">
+                        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Dokumenty</h1>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                             Centrum dokumentów przedszkolnych
                         </p>
                     </div>
@@ -117,21 +117,21 @@ const Dokumenty = () => {
                 <div className="flex justify-between items-center">
                     <div className="flex gap-4">
                         <div className="flex items-center gap-2">
-                            <Search className="w-4 h-4 text-gray-500" />
+                            <Search className="w-4 h-4 text-gray-500 dark:text-gray-400" />
                             <input
                                 type="text"
                                 placeholder="Szukaj dokumentów..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#608858] w-64"
+                                className="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#005FA6] w-64"
                             />
                         </div>
                         <div className="flex items-center gap-2">
-                            <Filter className="w-4 h-4 text-gray-500" />
+                            <Filter className="w-4 h-4 text-gray-500 dark:text-gray-400" />
                             <select 
                                 value={filterType}
                                 onChange={(e) => setFilterType(e.target.value)}
-                                className="border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#608858]"
+                                className="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#005FA6]"
                             >
                                 <option value="all">Wszystkie kategorie</option>
                                 <option value="regulaminy">Regulaminy</option>
@@ -143,7 +143,7 @@ const Dokumenty = () => {
                                 <option value="formularze">Formularze</option>
                                 <option value="wycieczki">Wycieczki</option>
                             </select>
-                            <div className="text-sm text-gray-600 ml-4">
+                            <div className="text-sm text-gray-600 dark:text-gray-300 ml-4">
                                 Znaleziono: {filteredDocuments.length} dokumentów
                             </div>
                         </div>
@@ -152,9 +152,9 @@ const Dokumenty = () => {
             </div>
 
             <div className="flex-1 p-6 overflow-y-auto">
-                <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div className="px-6 py-4 border-b border-gray-200">
-                        <h2 className="text-lg font-bold text-gray-900">Lista dokumentów</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                        <h2 className="text-lg font-bold text-gray-900 dark:text-white">Lista dokumentów</h2>
                     </div>
                     <div className="overflow-x-auto">
                         <Table>
@@ -172,27 +172,27 @@ const Dokumenty = () => {
                             <TableBody>
                                 {filteredDocuments.map((document) => (
                                     <TableRow key={document.id}>
-                                        <TableCell className="font-medium">{document.title}</TableCell>
+                                        <TableCell className="font-medium dark:text-white">{document.title}</TableCell>
                                         <TableCell className="max-w-xs">
-                                            <div className="text-sm text-gray-900">{document.description}</div>
+                                            <div className="text-sm text-gray-900 dark:text-gray-300">{document.description}</div>
                                         </TableCell>
                                         <TableCell>
-                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
                                                 {document.category}
                                             </span>
                                         </TableCell>
-                                        <TableCell className="font-semibold text-gray-600">{document.type}</TableCell>
-                                        <TableCell className="text-sm text-gray-500">{document.size}</TableCell>
-                                        <TableCell className="text-sm text-gray-500">{document.date}</TableCell>
+                                        <TableCell className="font-semibold text-gray-600 dark:text-gray-300">{document.type}</TableCell>
+                                        <TableCell className="text-sm text-gray-500 dark:text-gray-400">{document.size}</TableCell>
+                                        <TableCell className="text-sm text-gray-500 dark:text-gray-400">{document.date}</TableCell>
                                         <TableCell>
                                             <div className="flex gap-2">
                                                 <button 
-                                                    className="text-[#608858] hover:text-[#4a6b44] transition-colors"
+                                                    className="text-[#005FA6] hover:text-[#005FA6] transition-colors"
                                                     title="Pobierz"
                                                 >
                                                     <Download className="w-4 h-4 cursor-pointer" />
                                                 </button>
-                                                <button className="text-gray-500 hover:text-gray-700 transition-colors" title="Podgląd">
+                                                <button className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors" title="Podgląd">
                                                     <Eye className="w-4 h-4 cursor-pointer" />
                                                 </button>
                                             </div>

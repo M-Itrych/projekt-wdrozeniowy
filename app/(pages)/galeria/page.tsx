@@ -44,12 +44,12 @@ const Galeria = () => {
     };
 
     return (
-        <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
-            <div className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="h-screen bg-gray-50 dark:bg-gray-900 flex flex-col overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
                 <div className="flex justify-between items-center">
                     <div>
-                        <h1 className="text-2xl font-bold text-gray-900">Galeria</h1>
-                        <p className="text-sm text-gray-500 mt-1">
+                        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Galeria</h1>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                             Zdjęcia z przedszkola
                         </p>
                     </div>
@@ -61,12 +61,12 @@ const Galeria = () => {
                 {currentImages.map((image) => (
                     <div 
                         key={image.id}
-                        className="bg-gray-200 rounded-lg p-4 min-h-[200px] flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-colors duration-200"
+                        className="bg-gray-200 dark:bg-gray-700 rounded-lg p-4 min-h-[200px] flex items-center justify-center cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200"
                         onClick={() => handleImageClick(image.id)}
                     >
                         <div className="text-center">
-                            <Camera className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                            <p className="text-gray-500">{image.title}</p>
+                            <Camera className="w-12 h-12 text-gray-400 dark:text-gray-500 mx-auto mb-2" />
+                            <p className="text-gray-500 dark:text-gray-300">{image.title}</p>
                         </div>
                     </div>
                 ))}
@@ -86,24 +86,24 @@ const Galeria = () => {
                     <div className="relative max-w-4xl max-h-full p-4" onClick={(e) => e.stopPropagation()}>
                         <button 
                             onClick={closeModal}
-                            className="absolute top-2 right-2 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors cursor-pointer"
+                            className="absolute top-2 right-2 bg-white dark:bg-gray-800 rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
                         >
-                            <X className="w-6 h-6" />
+                            <X className="w-6 h-6 dark:text-white" />
                         </button>
-                        <div className="bg-white rounded-lg p-6">
-                            <div className="bg-gray-200 rounded-lg p-8 min-h-[400px] flex items-center justify-center mb-4">
+                        <div className="bg-white dark:bg-gray-800 rounded-lg p-6">
+                            <div className="bg-gray-200 dark:bg-gray-700 rounded-lg p-8 min-h-[400px] flex items-center justify-center mb-4">
                                 <div className="text-center">
-                                    <Camera className="w-24 h-24 text-gray-400 mx-auto mb-4" />
-                                    <h3 className="text-xl font-semibold mb-2">
+                                    <Camera className="w-24 h-24 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+                                    <h3 className="text-xl font-semibold dark:text-white mb-2">
                                         {images.find(img => img.id === selectedImage)?.title}
                                     </h3>
-                                    <p className="text-gray-600">
+                                    <p className="text-gray-600 dark:text-gray-300">
                                         {images.find(img => img.id === selectedImage)?.description}
                                     </p>
                                 </div>
                             </div>
                             <div className="text-center">
-                                <p className="text-sm text-gray-500">
+                                <p className="text-sm text-gray-500 dark:text-gray-400">
                                     Kliknij poza obrazek lub przycisk X aby zamknąć
                                 </p>
                             </div>

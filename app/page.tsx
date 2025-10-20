@@ -150,13 +150,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-gray-50">
+    <div className="w-full min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto p-6">
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
             Witaj, Anna! 👋
           </h1>
-          <p className="text-gray-600 mt-1">
+          <p className="text-gray-600 dark:text-gray-300 mt-1">
             Oto podsumowanie z przedszkola
           </p>
         </div>
@@ -165,12 +165,12 @@ export default function Home() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">{stat.label}</p>
-                  <p className="text-2xl font-bold text-gray-900">
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">{stat.label}</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">
                     {stat.value}
                   </p>
                 </div>
@@ -183,56 +183,56 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-          <div className="lg:col-span-2 bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Informacje o dziecku
               </h2>
               <Link
                 href="/dziecko"
-                className="text-[#608858] hover:text-[#4a6b44] text-sm font-medium flex items-center gap-1"
+                className="text-[#005FA6] hover:text-[#005FA6] text-sm font-medium flex items-center gap-1"
               >
                 Zobacz więcej
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <div className="flex items-start gap-6">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#608858] to-[#4a6b44] flex items-center justify-center text-white text-3xl font-bold">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#005FA6] to-[#005FA6] flex items-center justify-center text-white text-3xl font-bold">
                 {childInfo.name.split(" ")[0][0]}
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   {childInfo.name}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-sm text-gray-600">Grupa</p>
-                    <p className="text-base font-semibold text-gray-900">
+                    <p className="text-sm text-gray-600 dark:text-gray-300">Grupa</p>
+                    <p className="text-base font-semibold text-gray-900 dark:text-white">
                       {childInfo.group}
                     </p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Wychowawca</p>
-                    <p className="text-base font-semibold text-gray-900">
+                    <p className="text-sm text-gray-600 dark:text-gray-300">Wychowawca</p>
+                    <p className="text-base font-semibold text-gray-900 dark:text-white">
                       {childInfo.teacher}
                     </p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Frekwencja</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">Frekwencja</p>
                     <div className="flex items-center gap-2">
-                      <div className="flex-1 bg-gray-200 rounded-full h-2">
+                      <div className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div
-                          className="bg-[#608858] h-2 rounded-full"
+                          className="bg-[#005FA6] h-2 rounded-full"
                           style={{ width: `${childInfo.attendance}%` }}
                         ></div>
                       </div>
-                      <span className="text-base font-semibold text-gray-900">
+                      <span className="text-base font-semibold text-gray-900 dark:text-white">
                         {childInfo.attendance}%
                       </span>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Status</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">Status</p>
                     <div className="flex items-center gap-1 text-green-600">
                       <CheckCircle className="w-4 h-4" />
                       <span className="text-base font-semibold">Obecne</span>
@@ -243,44 +243,44 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
               Dzisiejsze menu
             </h2>
             <div className="space-y-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Utensils className="w-4 h-4 text-[#608858]" />
-                  <p className="text-sm font-semibold text-gray-700">
+                  <Utensils className="w-4 h-4 text-[#005FA6]" />
+                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">
                     Śniadanie
                   </p>
                 </div>
-                <p className="text-sm text-gray-600 pl-6">
+                <p className="text-sm text-gray-600 dark:text-gray-300 pl-6">
                   {todayMenu.breakfast}
                 </p>
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Utensils className="w-4 h-4 text-[#608858]" />
-                  <p className="text-sm font-semibold text-gray-700">Obiad</p>
+                  <Utensils className="w-4 h-4 text-[#005FA6]" />
+                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">Obiad</p>
                 </div>
-                <p className="text-sm text-gray-600 pl-6">
+                <p className="text-sm text-gray-600 dark:text-gray-300 pl-6">
                   {todayMenu.lunch}
                 </p>
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Utensils className="w-4 h-4 text-[#608858]" />
-                  <p className="text-sm font-semibold text-gray-700">
+                  <Utensils className="w-4 h-4 text-[#005FA6]" />
+                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">
                     Podwieczorek
                   </p>
                 </div>
-                <p className="text-sm text-gray-600 pl-6">{todayMenu.snack}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 pl-6">{todayMenu.snack}</p>
               </div>
             </div>
             <Link
               href="/jadlospis"
-              className="mt-4 block text-center text-[#608858] hover:text-[#4a6b44] text-sm font-medium"
+              className="mt-4 block text-center text-[#005FA6] hover:text-[#005FA6] text-sm font-medium"
             >
               Zobacz pełny jadłospis
             </Link>
@@ -288,14 +288,14 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Ostatnie wiadomości
               </h2>
               <Link
                 href="/wiadomosci"
-                className="text-[#608858] hover:text-[#4a6b44] text-sm font-medium flex items-center gap-1"
+                className="text-[#005FA6] hover:text-[#005FA6] text-sm font-medium flex items-center gap-1"
               >
                 Zobacz wszystkie
                 <ArrowRight className="w-4 h-4" />
@@ -306,7 +306,7 @@ export default function Home() {
                 <Link
                   key={message.id}
                   href="/wiadomosci"
-                  className="block p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                  className="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border border-gray-100 dark:border-gray-600"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
@@ -314,8 +314,8 @@ export default function Home() {
                         <p
                           className={`text-sm font-semibold ${
                             message.unread
-                              ? "text-gray-900"
-                              : "text-gray-700"
+                              ? "text-gray-900 dark:text-white"
+                              : "text-gray-700 dark:text-gray-300"
                           }`}
                         >
                           {message.sender}
@@ -324,28 +324,28 @@ export default function Home() {
                           <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                         )}
                       </div>
-                      <p className="text-sm text-gray-600 line-clamp-1">
+                      <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-1">
                         {message.subject}
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">
+                      <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
                         {message.date}
                       </p>
                     </div>
-                    <MessageSquare className="w-5 h-5 text-gray-400" />
+                    <MessageSquare className="w-5 h-5 text-gray-400 dark:text-gray-500" />
                   </div>
                 </Link>
               ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Nadchodzące wydarzenia
               </h2>
               <Link
                 href="/wydarzenia"
-                className="text-[#608858] hover:text-[#4a6b44] text-sm font-medium flex items-center gap-1"
+                className="text-[#005FA6] hover:text-[#005FA6] text-sm font-medium flex items-center gap-1"
               >
                 Zobacz wszystkie
                 <ArrowRight className="w-4 h-4" />
@@ -355,22 +355,22 @@ export default function Home() {
               {upcomingEvents.map((event) => (
                 <div
                   key={event.id}
-                  className="p-3 rounded-lg border border-gray-100 hover:border-[#608858] transition-colors"
+                  className="p-3 rounded-lg border border-gray-100 dark:border-gray-600 hover:border-[#005FA6] transition-colors"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="bg-[#608858] text-white p-2 rounded-lg flex-shrink-0">
+                    <div className="bg-[#005FA6] text-white p-2 rounded-lg flex-shrink-0">
                       <Calendar className="w-5 h-5" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white">
                         {event.title}
                       </p>
                       <div className="flex items-center gap-3 mt-1">
-                        <span className="text-xs text-gray-600 flex items-center gap-1">
+                        <span className="text-xs text-gray-600 dark:text-gray-300 flex items-center gap-1">
                           <Calendar className="w-3 h-3" />
                           {event.date}
                         </span>
-                        <span className="text-xs text-gray-600 flex items-center gap-1">
+                        <span className="text-xs text-gray-600 dark:text-gray-300 flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {event.time}
                         </span>
@@ -384,14 +384,14 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Płatności do zapłaty
               </h2>
               <Link
                 href="/platnosci"
-                className="text-[#608858] hover:text-[#4a6b44] text-sm font-medium flex items-center gap-1"
+                className="text-[#005FA6] hover:text-[#005FA6] text-sm font-medium flex items-center gap-1"
               >
                 Zobacz wszystkie
                 <ArrowRight className="w-4 h-4" />
@@ -401,35 +401,35 @@ export default function Home() {
               {pendingPayments.map((payment) => (
                 <div
                   key={payment.id}
-                  className="p-4 rounded-lg border border-orange-200 bg-orange-50"
+                  className="p-4 rounded-lg border border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-900/20"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-sm font-semibold text-gray-900">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white">
                       {payment.title}
                     </p>
-                    <span className="text-lg font-bold text-orange-600">
+                    <span className="text-lg font-bold text-orange-600 dark:text-orange-400">
                       {payment.amount} PLN
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <p className="text-xs text-gray-600">
+                    <p className="text-xs text-gray-600 dark:text-gray-300">
                       Termin: {payment.dueDate}
                     </p>
                     <Link
                       href="/platnosci"
-                      className="text-xs font-medium text-[#608858] hover:text-[#4a6b44]"
+                      className="text-xs font-medium text-[#005FA6] hover:text-[#005FA6]"
                     >
                       Zapłać teraz
                     </Link>
                   </div>
                 </div>
               ))}
-              <div className="pt-3 border-t border-gray-200">
+              <div className="pt-3 border-t border-gray-200 dark:border-gray-600">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-gray-700">
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
                     Suma do zapłaty
                   </span>
-                  <span className="text-xl font-bold text-orange-600">
+                  <span className="text-xl font-bold text-orange-600 dark:text-orange-400">
                     {pendingPayments.reduce(
                       (sum, payment) => sum + payment.amount,
                       0
@@ -441,10 +441,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900">Ogłoszenia</h2>
-              <Bell className="w-5 h-5 text-gray-400" />
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">Ogłoszenia</h2>
+              <Bell className="w-5 h-5 text-gray-400 dark:text-gray-500" />
             </div>
             <div className="space-y-3">
               {announcements.map((announcement) => (
@@ -452,24 +452,24 @@ export default function Home() {
                   key={announcement.id}
                   className={`p-4 rounded-lg border ${
                     announcement.priority === "high"
-                      ? "border-red-200 bg-red-50"
-                      : "border-gray-200 bg-gray-50"
+                      ? "border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20"
+                      : "border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700"
                   }`}
                 >
                   <div className="flex items-start gap-3">
                     {announcement.priority === "high" ? (
-                      <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                      <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
                     ) : (
-                      <Bell className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <Bell className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                     )}
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-gray-900 mb-1">
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
                         {announcement.title}
                       </p>
-                      <p className="text-xs text-gray-600 mb-2">
+                      <p className="text-xs text-gray-600 dark:text-gray-300 mb-2">
                         {announcement.content}
                       </p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-gray-400 dark:text-gray-500">
                         {announcement.date}
                       </p>
                     </div>
