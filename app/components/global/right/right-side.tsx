@@ -1,16 +1,61 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
     Bell, 
     CreditCard, 
     Camera,
     Zap,
-    UserCheck
+    UserCheck,
+    Download,
+    Smartphone
 } from "lucide-react";
 
 const RightSide = () => {
+    const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+    const [isInstallable, setIsInstallable] = useState(false);
+    const [isStandalone, setIsStandalone] = useState(false);
+
+    useEffect(() => {
+        // Check if app is already installed (standalone mode)
+        setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
+
+        // Listen for the beforeinstallprompt event
+        const handler = (e: Event) => {
+            e.preventDefault();
+            setDeferredPrompt(e);
+            setIsInstallable(true);
+        };
+
+        window.addEventListener('beforeinstallprompt', handler);
+
+        return () => {
+            window.removeEventListener('beforeinstallprompt', handler);
+        };
+    }, []);
+
+    const handleInstallClick = async () => {
+        if (!deferredPrompt) {
+            return;
+        }
+
+        // Show the install prompt
+        deferredPrompt.prompt();
+
+        // Wait for the user to respond to the prompt
+        const { outcome } = await deferredPrompt.userChoice;
+
+        if (outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+        } else {
+            console.log('User dismissed the install prompt');
+        }
+
+        // Clear the deferredPrompt
+        setDeferredPrompt(null);
+        setIsInstallable(false);
+    };
     const notifications = [
         {
             id: 1,
@@ -107,6 +152,29 @@ const RightSide = () => {
                         ))}
                     </div>
                 </div>
+
+                {!isStandalone && isInstallable && (
+                    <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+                        <div className="bg-gradient-to-br from-[#005FA6] to-blue-700 rounded-xl p-4 text-white shadow-lg">
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className="bg-white/20 p-2 rounded-lg">
+                                    <Smartphone className="w-5 h-5" />
+                                </div>
+                                <h3 className="font-semibold text-sm">Zainstaluj Aplikację</h3>
+                            </div>
+                            <p className="text-xs text-white/90 mb-4">
+                                Zainstaluj aplikację na swoim urządzeniu i korzystaj z niej jak z natywnej aplikacji!
+                            </p>
+                            <button
+                                onClick={handleInstallClick}
+                                className="w-full bg-white text-[#005FA6] py-2.5 px-4 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 shadow-md"
+                            >
+                                <Download className="w-4 h-4" />
+                                Zainstaluj teraz
+                            </button>
+                        </div>
+                    </div>
+                )}
 
             </div>
         </div>
