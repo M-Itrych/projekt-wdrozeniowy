@@ -7,6 +7,10 @@ export default function LogowaniePage() {
   const handleLogin = () => {
     router.push("/");
   };
+  const handleLoginAsTeacher = () => {
+    router.push("/nauczyciel");
+  };
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
       <div className="max-w-md w-full space-y-8">
@@ -77,6 +81,15 @@ export default function LogowaniePage() {
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#005FA6] hover:bg-[#005FA6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#005FA6]"
             >
               Zaloguj się
+            </button>
+          </div>
+          <div>
+            <button
+              onClick={handleLoginAsTeacher}
+              type="submit"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#005FA6] hover:bg-[#005FA6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#005FA6]"
+            >
+              Zaloguj się jako nauczyciel
             </button>
           </div>
 

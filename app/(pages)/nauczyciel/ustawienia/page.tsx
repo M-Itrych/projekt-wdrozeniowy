@@ -24,7 +24,7 @@ export default function Ustawienia() {
     const [notifications, setNotifications] = useState(true);
     const [language, setLanguage] = useState("pl");
     const { theme, setTheme } = useTheme();
-    const [showOdbierzDziecko, setShowOdbierzDziecko] = useState(false);
+    const [showZaznaczObecnosc, setShowZaznaczObecnosc] = useState(false);
 
     return (
         <div className="h-screen bg-gray-50 dark:bg-gray-900 flex flex-col overflow-hidden ">
@@ -51,7 +51,7 @@ export default function Ustawienia() {
                                     id="notifications" 
                                     checked={notifications}
                                     onCheckedChange={setNotifications}
-                                    className="data-[state=checked]:bg-[#005FA6] cursor-pointer"
+                                    className="data-[state=checked]:bg-[#9333EA] cursor-pointer"
                                 />
                             </div>
                             <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
@@ -64,8 +64,8 @@ export default function Ustawienia() {
                                         <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#005FA6] data-[highlighted]:text-white focus:bg-[#005FA6] focus:text-white " value="pl">Polski</SelectItem>
-                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#005FA6] data-[highlighted]:text-white focus:bg-[#005FA6] focus:text-white " value="en">English</SelectItem>
+                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#9333EA] data-[highlighted]:text-white focus:bg-[#9333EA] focus:text-white " value="pl">Polski</SelectItem>
+                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#9333EA] data-[highlighted]:text-white focus:bg-[#9333EA] focus:text-white " value="en">English</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -79,9 +79,9 @@ export default function Ustawienia() {
                                         <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#005FA6] data-[highlighted]:text-white focus:bg-[#005FA6] focus:text-white" value="light">Jasny</SelectItem>
-                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#005FA6] data-[highlighted]:text-white focus:bg-[#005FA6] focus:text-white" value="dark">Ciemny</SelectItem>
-                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#005FA6] data-[highlighted]:text-white focus:bg-[#005FA6] focus:text-white" value="system">System</SelectItem>
+                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#9333EA] data-[highlighted]:text-white focus:bg-[#9333EA] focus:text-white" value="light">Jasny</SelectItem>
+                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#9333EA] data-[highlighted]:text-white focus:bg-[#9333EA] focus:text-white" value="dark">Ciemny</SelectItem>
+                                        <SelectItem className="cursor-pointer data-[highlighted]:bg-[#9333EA] data-[highlighted]:text-white focus:bg-[#9333EA] focus:text-white" value="system">System</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -107,11 +107,11 @@ export default function Ustawienia() {
                                         <DropdownMenuSeparator />
                                         <DropdownMenuCheckboxItem
                                             onSelect={(e) => e.preventDefault()}
-                                            checked={showOdbierzDziecko}
-                                            onCheckedChange={setShowOdbierzDziecko}
-                                            className="cursor-pointer data-[highlighted]:bg-[#005FA6] data-[highlighted]:text-white focus:bg-[#005FA6] focus:text-white "
+                                            checked={showZaznaczObecnosc}
+                                            onCheckedChange={setShowZaznaczObecnosc}
+                                            className="cursor-pointer data-[highlighted]:bg-[#9333EA] data-[highlighted]:text-white focus:bg-[#9333EA] focus:text-white "
                                         >
-                                            Odbierz dziecko
+                                            Zaznacz obecność
                                         </DropdownMenuCheckboxItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
@@ -119,7 +119,7 @@ export default function Ustawienia() {
                         </div>
                     </div>
                     <div className="flex justify-end cursor-pointer w-fit justify-self-end">
-                        <Button className="bg-[#005FA6] hover:bg-[#005FA6] text-white px-6 cursor-pointer">
+                        <Button className="bg-[#9333EA] hover:bg-[#9333EA] text-white px-6 cursor-pointer">
                             Zapisz zmiany
                         </Button>
                     </div>
@@ -128,3 +128,4 @@ export default function Ustawienia() {
         </div>
     );
 }
+
