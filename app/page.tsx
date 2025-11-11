@@ -1,10 +1,6 @@
-import Image from "next/image";
-
+import React from "react";
+import HomeDashboard from "./components/home/home-dashboard";
 
 export default function Home() {
-  return (
-    <div className="flex flex-row justify-end w-full">
-      
-    </div>
-  );
+  return <HomeDashboard />;
 }
